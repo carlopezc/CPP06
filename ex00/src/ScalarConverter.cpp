@@ -6,7 +6,7 @@
 /*   By: carlotalcd <carlotalcd@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 13:25:33 by carlotalcd        #+#    #+#             */
-/*   Updated: 2026/01/15 14:55:27 by carlotalcd       ###   ########.fr       */
+/*   Updated: 2026/03/09 15:52:15 by carlotalcd       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,30 +28,12 @@ void ScalarConverter::convert(std::string par)
             return;
         }
     }
-    
-    std::cout << "Float: " << static_cast<float>(num);
-    if (!(std::isnan(num) || std::isinf(num)) && (num - static_cast<int>(num) == 0)) {
-        std::cout << ".0";
-    }
-    std::cout << "f" << std::endl;
 
-    std::cout << "double: " << static_cast<double>(num);
-    if (!(std::isnan(num) || std::isinf(num)) && (num - static_cast<int>(num) == 0)) {
-        std::cout << ".0";
-    }
-    std::cout << std::endl;
-    
-    std::cout << "Int: ";
-    if (num > 2147483647 || num < -2147483648 || std::isnan(num) || std::isinf(num)) {
-        std::cout << "impossible";
-    } else {
-        std::cout << static_cast<int>(num);
-    }
-    std::cout << std::endl;
-
+    bool is_nan = (num != num);
+    bool is_inf = (par == "inf" || par == "inff" || par == "+inf" || par == "+inff" || par == "-inf" || par == "-inff");
     
     std::cout << "Char : " ;
-    if (num < 0 || num > 127 || std::isnan(num)) {
+    if (num < 0 || num > 127 || is_nan || is_inf) {
         std::cout << "impossible";
     } else if (!isprint(static_cast<char>(num))) {
         std::cout << "Non displayable";
@@ -59,5 +41,26 @@ void ScalarConverter::convert(std::string par)
         std::cout << "'" << static_cast<char>(num) << "'";
     }
     std::cout << std::endl;
+
+    std::cout << "Int: ";
+    if (num > 2147483647 || num < -2147483648 || is_nan || is_inf) {
+        std::cout << "impossible";
+    } else {
+        std::cout << static_cast<int>(num);
+    }
+    std::cout << std::endl;
+
+    std::cout << "Float: " << static_cast<float>(num);
+    if (!is_nan && !is_inf && (std::floor(num) == num)) {
+        std::cout << ".0";
+    }
+    std::cout << "f" << std::endl;
+
+    std::cout << "double: " << static_cast<double>(num);
+    if (!is_nan && !is_inf && (std::floor(num) == num)) {
+        std::cout << ".0";
+    }
+    std::cout << std::endl;
+    
     return ;
 }
