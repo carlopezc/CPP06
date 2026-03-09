@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serialize.hpp                                      :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carlotalcd <carlotalcd@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 16:54:54 by carlotalcd        #+#    #+#             */
-/*   Updated: 2026/01/15 17:13:20 by carlotalcd       ###   ########.fr       */
+/*   Updated: 2026/03/09 16:14:23 by carlotalcd       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZE_HPP
-#define SERIALIZE_HPP
+#ifndef SERIALIZER_HPP
+#define SERIALIZER_HPP
 
 #include <stdint.h>
 #include "Data.hpp"

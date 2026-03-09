@@ -6,7 +6,7 @@
 /*   By: carlotalcd <carlotalcd@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 17:19:08 by carlotalcd        #+#    #+#             */
-/*   Updated: 2026/01/15 17:19:32 by carlotalcd       ###   ########.fr       */
+/*   Updated: 2026/03/09 16:15:32 by carlotalcd       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int main()
 {
     Data myData;
-    myData.info = "Top Secret Data";
+    myData.info = "Hola caracola Carlota";
 
     Data* originalPtr = &myData;
     
