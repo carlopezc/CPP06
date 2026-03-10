@@ -6,7 +6,7 @@
 /*   By: carlotalcd <carlotalcd@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 17:42:53 by carlotalcd        #+#    #+#             */
-/*   Updated: 2026/01/15 17:53:12 by carlotalcd       ###   ########.fr       */
+/*   Updated: 2026/03/10 12:16:36 by carlotalcd       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,25 +59,22 @@ void identify(Base& p)
     {
         (void)dynamic_cast<A&>(p);
         std::cout << "A" << std::endl;
+        return ;
     }
-    catch (std::exception &e)
+    catch (...){}
+    try
     {
-        try
-        {
-            (void)dynamic_cast<B&>(p);
-            std::cout << "B" << std::endl;
-        }
-        catch (std::exception &e)
-        {
-            try
-            {
-                (void)dynamic_cast<C&>(p);
-                std::cout << "C" << std::endl;
-            }
-            catch (std::exception &e)
-            {
-                std::cout << "Unknown type" << std::endl;
-            }
-        }
+        (void)dynamic_cast<B&>(p);
+        std::cout << "B" << std::endl;
+        return ;
     }
+    catch (...){}
+    try
+    {
+        (void)dynamic_cast<C&>(p);
+        std::cout << "C" << std::endl;
+        return ;
+    }
+    catch (...){}
+    std::cout << "Unknown type" << std::endl;
 }
